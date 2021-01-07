@@ -10,7 +10,7 @@ struct SecBlink : HqClock
   }
 };
 
-auto blink = SecBlink();
+auto blinkTimer = SecBlink();
 
 void setup() {
   pinMode(PIN, OUTPUT);
@@ -18,5 +18,5 @@ void setup() {
 
 void loop()
 {
-  blink.update();
+  blinkTimer.update();
 }
