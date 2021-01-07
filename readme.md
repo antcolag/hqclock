@@ -24,7 +24,7 @@ these functions can be used for get time information
 - `uint64_t getDaysTotal(long delta = 0)`
 - `uint8_t getDays(long delta = 0)`
 - `uint8_t getWeeks(long delta = 0)`
-- `uint64_t delta(unsigned long curr)` use it with Arduinio's `micros()`
+- `uint64_t delta(unsigned long curr)` calculate time the difference, use it with Arduinio's `micros()`
 
 Handlers
 ---
