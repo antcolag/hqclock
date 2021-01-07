@@ -31,9 +31,9 @@ Handlers
 
 You can extend the HqClock class and override these method
 
-- `virtual uint8_t onWeek(long currentDelta = 0)`
-- `virtual uint8_t onDay(long currentDelta = 0)`
-- `virtual uint8_t onHour(long currentDelta = 0)`
-- `virtual uint8_t onMinute(long currentDelta = 0)`
-- `virtual uint8_t onSecond(long currentDelta = 0)`
-- `virtual uint16_t onMillis(long currentDelta = 0)`
+- `virtual uint8_t onWeek(long currentDelta)`
+- `virtual uint8_t onDay(long currentDelta)`
+- `virtual uint8_t onHour(long currentDelta)`
+- `virtual uint8_t onMinute(long currentDelta)`
+- `virtual uint8_t onSecond(long currentDelta)`
+- `virtual uint16_t onMillis(long currentDelta)`

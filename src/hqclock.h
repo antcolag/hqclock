@@ -70,11 +70,11 @@ struct HqClock
 		return getTime(curr - low) - getTime();
 	}
 
-	virtual uint8_t onWeek(long currentDelta = 0){
+	virtual uint8_t onWeek(long currentDelta){
 		return getWeeks(currentDelta);
 	}
 
-	virtual uint8_t onDay(long currentDelta = 0){
+	virtual uint8_t onDay(long currentDelta){
 		auto d = getWeeks(currentDelta) - getWeeks();
 		if(d){
 			onWeek(currentDelta);
@@ -82,7 +82,7 @@ struct HqClock
 		return d;
 	}
 
-	virtual uint8_t onHour(long currentDelta = 0){
+	virtual uint8_t onHour(long currentDelta){
 		auto d = getDaysTotal(currentDelta) - getDaysTotal();
 		if(d){
 			onDay(currentDelta);
@@ -90,7 +90,7 @@ struct HqClock
 		return d;
 	}
 
-	virtual uint8_t onMinute(long currentDelta = 0){
+	virtual uint8_t onMinute(long currentDelta){
 		auto d = getHoursTotal(currentDelta) - getHoursTotal();
 		if(d){
 			onHour(currentDelta);
@@ -98,7 +98,7 @@ struct HqClock
 		return d;
 	}
 
-	virtual uint8_t onSecond(long currentDelta = 0){
+	virtual uint8_t onSecond(long currentDelta){
 		auto d = getMinutesTotal(currentDelta) - getMinutesTotal();
 		if(d){
 			onMinute(currentDelta);
@@ -106,7 +106,7 @@ struct HqClock
 		return d;
 	}
 
-	virtual uint16_t onMillis(long currentDelta = 0){
+	virtual uint16_t onMillis(long currentDelta){
 		auto d = getSecondsTotal(currentDelta) - getSecondsTotal();
 		if(d){
 			onSecond(currentDelta);
