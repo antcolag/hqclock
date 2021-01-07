@@ -13,7 +13,7 @@ struct SecBlink : HqClock
 auto blink = SecBlink();
 
 void setup() {
-  pinMode(PIN, OUTPUT)
+  pinMode(PIN, OUTPUT);
 }
 
 void loop()
