@@ -5,7 +5,7 @@
 struct SecBlink : HqClock
 {
   uint8_t onSecond(long currentDelta) {
-    digitalWrite(PIN, getSecondsTotal() % 2);
+    digitalWrite(PIN, getSecondsTotal(currentDelta) % 2);
     return HqClock::onSecond(currentDelta);
   }
 };
