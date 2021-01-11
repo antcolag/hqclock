@@ -66,10 +66,6 @@ struct HqClock
 		return getDaysTotal(delta) / 7;
 	}
 
-	uint64_t delta(unsigned long curr) {
-		return getTime(curr - low) - getTime();
-	}
-
 	virtual uint8_t onWeek(long currentDelta){
 		return getWeeks(currentDelta);
 	}
@@ -112,6 +108,10 @@ struct HqClock
 			onSecond(currentDelta);
 		}
 		return d;
+	}
+
+	uint64_t delta(unsigned long curr) {
+		return getTime(curr - low) - getTime();
 	}
 
 	virtual uint64_t update() {
