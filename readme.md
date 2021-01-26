@@ -47,7 +47,7 @@ You ahave to create an instane of HqClock in order to call the methods it provid
 
 #define PIN 13
 
-
+// create the instance
 auto clockInstance = HqClock();
 
 void setup() {
