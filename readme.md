@@ -63,7 +63,7 @@ void loop()
   Serial.println((double) clockInstance.getTime());
 }
 ```
-As you can see the instance of the HqClock class needs to be updated at least before calling its methods.
+As you can see the instance of the HqClock class needs to be updated at least before calling its other methods.
 
 Also you can extend the HqClock class overriding some of its on* methods
 
