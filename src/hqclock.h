@@ -62,7 +62,7 @@ struct HqClock
 		return getDaysTotal(delta) % 7;
 	}
 
-	uint8_t getWeeks(long delta = 0){
+	int getWeeks(long delta = 0){
 		return getDaysTotal(delta) / 7;
 	}
 
@@ -114,13 +114,13 @@ struct HqClock
 		return getTime(curr - low) - getTime();
 	}
 
-	virtual uint64_t update() {
-		auto currentDelta = delta(micros());
-		auto d = getMillisTotal(currentDelta) - getMillisTotal();
+	virtual uint64_t update(uint64_t time = 0) {
+		uint64_t currentDelta = delta((time ?: micros()));
+		uint64_t d = getMillisTotal(currentDelta) - getMillisTotal();
 		if(d) {
 			onMillis(currentDelta);
 		}
-		auto t = getTime(currentDelta);
+		uint64_t t = getTime(currentDelta);
 		high = t >> 32;
 		low = (unsigned long) t;
 		return d;
