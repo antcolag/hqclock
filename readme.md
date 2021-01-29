@@ -1,10 +1,7 @@
 Hq clock for arduino
 ===
 
-This library provides a clock with an hq definition from microseconds to weeks.
-
-Each instance of the HqClock class needs to be updated as often as possible
-ie by calling its update method in the loop function
+This is a clock library that provides high definition time in a range from microseconds to weeks.
 
 Functions
 ---
@@ -41,5 +38,59 @@ You can extend the HqClock class and override these method
 - `virtual uint8_t onSecond(long currentDelta)`
 - `virtual uint16_t onMillis(long currentDelta)`
 
+Usage
+---
 
+You ahave to create an instane of HqClock in order to call the methods it provides
+```
+#include <hqclock.h>
 
+#define PIN 13
+
+// create the instance
+auto clockInstance = HqClock();
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  // update clock time
+  clockInstance.update();
+  
+  // print the amount of microseconds since started
+  Serial.println((double) clockInstance.getTime());
+}
+```
+As you can see the instance of the HqClock class needs to be updated at least before calling its other methods.
+
+Also you can extend the HqClock class overriding some of its on* methods
+
+```
+#include <hqclock.h>
+
+#define PIN 13
+
+struct SecBlink : HqClock
+{
+  uint8_t onSecond(long currentDelta) {
+    digitalWrite(PIN, getSecondsTotal(currentDelta) % 2);
+    return HqClock::onSecond(currentDelta);
+  }
+};
+
+auto blinkTimer = SecBlink();
+
+void setup() {
+  pinMode(PIN, OUTPUT);
+}
+
+void loop()
+{
+  blinkTimer.update();
+}
+
+```
+
+In this case you have to update the instance as often as possible in order to have an accurate timing of execution for your onSecond handler
