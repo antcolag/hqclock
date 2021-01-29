@@ -62,7 +62,7 @@ struct HqClock
 		return getDaysTotal(delta) % 7;
 	}
 
-	int getWeeks(long delta = 0){
+	unsigned int getWeeks(long delta = 0){
 		return getDaysTotal(delta) / 7;
 	}
 
