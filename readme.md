@@ -41,7 +41,7 @@ You can extend the HqClock class and override these method
 Usage
 ---
 
-You ahave to create an instane of HqClock in order to call the methods it provides
+Create an HqClock instance in order to call the methods it provides
 ```
 #include <hqclock.h>
 
